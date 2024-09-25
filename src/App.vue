@@ -2,22 +2,25 @@
 import { ref } from 'vue';
 //Modelo
 const header = ref  ('App lista de compras');
-const items = ref([
-    {id:'0', label:'10 bolillos'},
-    {id:'1', label:'1 lata frijoles'},
-    {id:'2', label:'1 Chelas'},
-    {id:'3', label:'1 Nutela'}
+const items = ref ([
+{id: '0', label: '10 bolillos'},  
+{id: '1', label:'1 lata frijoles'},
+{id: '2', label: '1 Chelas'},
+{id: '3', label: '1 nutella'},
 ]);
+const newItem= ref('');
 </script>
 
 <template>
 <h1> 
-    <i class="material-icons shopping-cart-icon"> local_mall</i>
+        <i class="material-icons shopping-cart-icon"> local_mall</i>
     {{ header }} 
-    </h1>
+    
+</h1>
+<input v-model="newItem" type="text"
+     placeholder="Agregar articulo"> {{ newItem }}
     <ul>
-        <li v-for="item in items" :key="item.id"> 🛍️ {{ item.label }} </li>
-        
+        <li v-for="item in items" :key = "item.id">🛍️{{ item.label }} </li>
     </ul>
 </template>
 
