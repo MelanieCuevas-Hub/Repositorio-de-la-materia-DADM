@@ -1,11 +1,24 @@
 <script setup>
 import { ref } from 'vue';
 const header = ref('App Lista de compras');
+//---items---
+//Item.Model
 const items = ref([
   {id: 1, label: '10 bolillos'},
   {id: 2, label: '1 lata de frijoles'},
-  {id: 3, label: '2 lata de atún'}
+  {id: 3, label: '1 lata de atún'},
+  {id: 4, label: '1 Nutella'}
 ]);
+
+// Items-Method
+const saveItem = (item) => {
+  items.value.push({id: items.value.length + 1, label: newItem.value});
+//Clean the input
+  newItem.value = '';
+
+}
+
+
 const newItem = ref('');
 const newItemHighPriority = ref(false);
 </script>
@@ -13,7 +26,9 @@ const newItemHighPriority = ref(false);
 <template>
   <h1> <i class="material-icons shopping-cart-icon">local_mall</i> {{ header }}</h1>
   <!-- Agrupando Entradas de usuario -->
-  <form class="add-item form" v-on:submit.prevent="items.push({id: items.length + 1, label: newItem})">
+  <form 
+  class="add-item form" 
+  v-on:submit.prevent="saveItem">
     <!-- Entrada de texto -->
     <input 
       type="text" 
