@@ -18,16 +18,42 @@ const saveItem = (item) => {
 
 }
 
-
+// Visualizacion formulario
 const newItem = ref('');
 const newItemHighPriority = ref(false);
+const editing = ref(true);
+const activeteEdition = (activate) => {
+  editing.value = activate;
+}
+
 </script>
 
 <template>
-  <h1> <i class="material-icons shopping-cart-icon">local_mall</i> {{ header }}</h1>
+  <div class="header">
+      <h1>
+         <i 
+         class="material-icons shopping-cart-icon">
+         local_mall
+        </i> 
+        {{ header }}
+      </h1>
+      <button 
+      v-if="editing"
+       class="btn"
+        @click="activeteEdition(false)">
+        Cancelar
+      </button>
+      <button
+       v-else
+        class="btn btn-primary"
+         @click="activeteEdition(true)">
+         Agregar
+        </button>
+  </div>
   <!-- Agrupando Entradas de usuario -->
   <form 
   class="add-item form" 
+  v-if="editing"
   v-on:submit.prevent="saveItem">
     <!-- Entrada de texto -->
     <input 
@@ -48,6 +74,7 @@ const newItemHighPriority = ref(false);
       🛍️ {{ label }}
     </li>
   </ul>
+  <p v-if="items.length === 0">🥀 NO HAY ELEMENTOS EN LA LISTA 🥀</p>
 </template>
 
 <style scoped>
