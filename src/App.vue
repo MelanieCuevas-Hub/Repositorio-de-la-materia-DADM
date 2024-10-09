@@ -58,12 +58,23 @@ const activeEdition = (activate) => {
       Salvar Articulo
     </button>
   </form>
+  <!--Lista clase como Arreglos -->
   <ul>
     <li 
     v-for="{label, id, purchased, priority} in items" 
     :key="id" 
     class="amazing"
     :class="{ strikeout: purchased, priority: priority}">
+    {{priority ? "🔥": "🛍️"}} {{ label }} 
+  </li>
+  </ul>
+<!--Lista clase como Arreglos -->
+  <ul>
+    <li 
+    v-for="{label, id, purchased, priority} in items" 
+    :key="id" 
+    class="amazing"
+    :class="[purchased ? 'strikeout': '', priority ? 'priority' : '']">
     {{priority ? "🔥": "🛍️"}} {{ label }} 
   </li>
   </ul>
