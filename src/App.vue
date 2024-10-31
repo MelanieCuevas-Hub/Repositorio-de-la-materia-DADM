@@ -79,6 +79,6 @@ const reversedItems = computed(() => [...items.value].reverse());
 <style scoped>
 .shopping-cart-icon {
   font-size: 2rem;
-  /* Adjust the font-size value as per your desired size */
+  /* Ajuste el valor del tamaño de fuente según el tamaño deseado */
 }
 </style>
