@@ -26,6 +26,5 @@ import planItem from './components/plan-item.vue';
   </div>
       
 </template>
-
 <style scoped>
 </style>
