@@ -30,10 +30,11 @@
 //CREANDO UNA PROPIEDAD COMPUTADA 
 //PARA SABER SI EL ´PLAN A SIDO SELECCIONADO
 const isSelected = computed(() => { 
-   return props.name === props.selectedPlan;
+   return props.name === props.selectPlan;
 
 })
   </script>
   
   <style scoped>
+  /* Agrega tus estilos aquí */
   </style>
